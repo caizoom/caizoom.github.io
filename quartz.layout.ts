@@ -1,10 +1,34 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
-// 极简 Notion 风格布局：只有内容、目录和反向链接
-export const defaultPageLayout: PageLayout = {
+export const sharedPageComponents: SharedLayout = {
+  head: Component.Head(),
+  header: [
+    Component.Banner(),
+    Component.Flex({
+      components: [
+        { Component: Component.Search(), grow: true },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Nav({
+      links: {
+        "首页": "/",
+        "日常记录": "/日常记录/",
+        "知识分享": "/知识分享/",
+        "关于我": "/关于我",
+      },
+    }),
+  ],
+  afterBody: [],
+  footer: Component.Footer({
+    links: {},
+  }),
+}
+
+export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
   ],
@@ -16,13 +40,11 @@ export const defaultPageLayout: PageLayout = {
   right: [],
 }
 
-export const sharedPageComponents: SharedLayout = {
-  head: Component.Head(),
-  header: [],
+export const defaultListPageLayout: PageLayout = {
+  beforeBody: [
+    Component.ArticleTitle(),
+  ],
   afterBody: [],
-  footer: Component.Footer({
-    links: {
-      GitHub: "https://github.com/caizoom/caizoom.github.io",
-    },
-  }),
+  left: [],
+  right: [],
 }
