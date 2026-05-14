@@ -1,7 +1,7 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
-/**
+baseUrl: "https://caizoom.github.io",/**
  * Quartz 4 Configuration
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "https://caizoom.github.io",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
